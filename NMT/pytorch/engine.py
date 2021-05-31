@@ -21,7 +21,6 @@ def train_fn(NMT_model, data_loader,criterion,optimizer):
         loss.backward()
         #clip_grad_norm_(NMT_model.parameters(),max_norm=1)
         epoch_loss+=loss.item()
-        print(loss.item())
         optimizer.step()
     return epoch_loss/len(data_loader)
 
@@ -40,5 +39,4 @@ def val_fn(NMT_model, data_loader,criterion):
         loss = criterion(output, trg)
         #clip_grad_norm_(NMT_model.parameters(),max_norm=1)
         epoch_loss+=loss.item()
-        print(loss.item())
     return epoch_loss/len(data_loader)

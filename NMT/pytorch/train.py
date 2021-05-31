@@ -30,8 +30,8 @@ best_loss_val = 99999
 log=[]
     
 for epoch in range(config.N_EPOCHS+1):
-  val_loss = val_fn(NMT_model, valid_iter,criterion)
   train_loss = train_fn(NMT_model, train_iter,criterion,optimizer)
+  val_loss = val_fn(NMT_model, valid_iter,criterion)
   
   log_epoch = {"epoch": epoch+1, "train_loss": train_loss, "val_loss": val_loss}
   log.append(log_epoch)
